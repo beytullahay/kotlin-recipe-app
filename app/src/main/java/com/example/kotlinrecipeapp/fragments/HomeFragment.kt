@@ -49,6 +49,8 @@ class HomeFragment : Fragment() {
         observerRandomMeal()
         onRandomMealClick()
 
+        homeMvvm
+
 
 
     }
