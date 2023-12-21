@@ -30,9 +30,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    // ViewBinding
+    buildFeatures {
+        viewBinding = true
+    }
+
+
 }
 
 def nav_version = "2.7.6"
+def lifecycle_version = "2.4.0-rc01"
 
 dependencies {
 
@@ -54,4 +62,16 @@ dependencies {
 
     // gif
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
+
+    // retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // glide (image view)
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    // video model
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "android.arch.lifecycle:extensions:1.1.0"
 }
