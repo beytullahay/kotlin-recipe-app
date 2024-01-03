@@ -10,7 +10,12 @@ workflows:
         - google_play
       vars:
         PACKAGE_NAME: "io.codemagic.androidquicksample"
-    # scripts:
+    scripts:
+    
+    - name: Build Android release
+      script: | 
+        ./gradlew bundleRelease # -> to create the .aab
+        # gradlew assembleRelease # -> to create the .apk
     #   - name: Set Android SDK location
     #     script: |
     #       echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
@@ -30,8 +35,8 @@ workflows:
     publishing:
       email:
         recipients:
-          - user_1@example.com
-          - user_2@example.com
+          - beytullahay47@gmail.com
+          
         notify:
           success: true
           failure: false
