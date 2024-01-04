@@ -27,7 +27,7 @@ class CategoryMealsViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<MealsByCategoryList>, t: Throwable) {
-                Log.e("CategoryMEalsViewModel",t.message.toString())
+                Log.e("CategoryMealsViewModel",t.message.toString())
             }
 
 
