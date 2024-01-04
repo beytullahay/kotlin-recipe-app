@@ -6,12 +6,10 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.kotlinrecipeapp.databinding.FragmentFavoritesBinding
 import com.example.kotlinrecipeapp.databinding.MealItemBinding
 import com.example.kotlinrecipeapp.pojo.Meal
-import javax.microedition.khronos.opengles.GL
 
-class FavoritesMealsAdapter : RecyclerView.Adapter<FavoritesMealsAdapter.FavoritesMealsAdapterViewHolder>() {
+class MealsAdapter : RecyclerView.Adapter<MealsAdapter.FavoritesMealsAdapterViewHolder>() {
 
     inner class FavoritesMealsAdapterViewHolder(val binding: MealItemBinding) : RecyclerView.ViewHolder(binding.root)
     private val diffUtil =  object : DiffUtil.ItemCallback<Meal>(){
