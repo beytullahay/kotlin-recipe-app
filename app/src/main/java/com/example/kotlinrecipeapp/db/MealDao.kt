@@ -12,7 +12,7 @@ import com.example.kotlinrecipeapp.pojo.Meal
 @Dao
 interface MealDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE) // hem ekleme hem update beraber
-    suspend fun upsertMeal(meal:Meal) // suspend = asenkron
+    suspend fun upsert(meal:Meal) // suspend = asenkron
 
     @Delete
     suspend fun delete(meal: Meal)
