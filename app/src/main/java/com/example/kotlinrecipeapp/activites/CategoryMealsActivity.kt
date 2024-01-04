@@ -1,14 +1,13 @@
 package com.example.kotlinrecipeapp.activites
 
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.kotlinrecipeapp.R
 import com.example.kotlinrecipeapp.adapter.CategoryMealsAdapter
 import com.example.kotlinrecipeapp.databinding.ActivityCategoryMealsBinding
 import com.example.kotlinrecipeapp.fragments.HomeFragment
@@ -26,7 +25,8 @@ class CategoryMealsActivity : AppCompatActivity() {
 
         prepareRecyclerView()
 
-        categoryMealsViewModel = ViewModelProviders.of(this)[CategoryMealsViewModel::class.java]
+        //  categoryMealsViewModel = ViewModelProviders.of(this)[CategoryMealsViewModel::class.java]
+        categoryMealsViewModel = ViewModelProvider(this)[CategoryMealsViewModel::class.java]
 
         categoryMealsViewModel.getMealsByCategory(intent.getStringExtra(HomeFragment.CATEGORY_NAME)!!)
 
