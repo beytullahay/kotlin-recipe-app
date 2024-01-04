@@ -1,5 +1,8 @@
 package com.example.kotlinrecipeapp.pojo
 
+import androidx.room.Entity
+
+@Entity(tableName = "mealInformation") // room ile ekleme
 data class Meal(
     val dateModified: Any,
     val idMeal: String,

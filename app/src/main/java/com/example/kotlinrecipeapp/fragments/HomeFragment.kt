@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.kotlinrecipeapp.activites.CategoryMealsActivity
 import com.example.kotlinrecipeapp.activites.MealActivity
 import com.example.kotlinrecipeapp.adapter.CategoriesAdapter
 import com.example.kotlinrecipeapp.adapter.MostPopularAdapter
@@ -33,6 +34,7 @@ class HomeFragment : Fragment() {
             const val MEAL_ID = "com.example.kotlinrecipeapp.fragments.idMeal"
             const val MEAL_NAME = "com.example.kotlinrecipeapp.fragments.nameMeal"
             const val MEAL_THUMB = "com.example.kotlinrecipeapp.fragments.thumbMeal"
+            const val CATEGORY_NAME = "com.example.kotlinrecipeapp.fragments.categoryName"
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,11 +71,21 @@ class HomeFragment : Fragment() {
         prepareCategoriesRecyclerView()
         homeMvvm.getCategories()
         observeCategoriesLiveData()
+        onCategoryClick()
 
 
 
 
 
+    }
+
+    private fun onCategoryClick() {
+        categoriesAdapter.onItemCick = {
+            category ->
+            val intent = Intent(activity, CategoryMealsActivity::class.java)
+            intent.putExtra(CATEGORY_NAME,category.strCategory)
+            startActivity(intent)
+        }
     }
 
     private fun prepareCategoriesRecyclerView() {

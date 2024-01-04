@@ -39,10 +39,16 @@ android {
 
 }
 
-def nav_version = "2.7.6"
-def lifecycle_version = "2.4.0-rc01"
+
+
+
 
 dependencies {
+
+    def nav_version = "2.7.6"
+    def lifecycle_version = "2.4.0-rc01"
+    def room_version = "2.6.1"
+    apply plugin: 'kotlin-kapt'
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -74,4 +80,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "android.arch.lifecycle:extensions:1.1.0"
+
+    // room
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
 }
