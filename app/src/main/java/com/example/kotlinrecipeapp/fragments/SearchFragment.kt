@@ -9,13 +9,10 @@ import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kotlinrecipeapp.R
 import com.example.kotlinrecipeapp.activites.MainActivity
 import com.example.kotlinrecipeapp.adapter.MealsAdapter
-import com.example.kotlinrecipeapp.databinding.FragmentHomeBinding
 import com.example.kotlinrecipeapp.databinding.FragmentSearchBinding
-import com.example.kotlinrecipeapp.videoModel.HomeViewModel
+import com.example.kotlinrecipeapp.viewModel.HomeViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

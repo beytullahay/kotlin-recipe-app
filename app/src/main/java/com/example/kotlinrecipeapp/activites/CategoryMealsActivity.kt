@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.kotlinrecipeapp.adapter.CategoryMealsAdapter
 import com.example.kotlinrecipeapp.databinding.ActivityCategoryMealsBinding
 import com.example.kotlinrecipeapp.fragments.HomeFragment
-import com.example.kotlinrecipeapp.videoModel.CategoryMealsViewModel
+import com.example.kotlinrecipeapp.viewModel.CategoryMealsViewModel
 
 class CategoryMealsActivity : AppCompatActivity() {
 
@@ -25,9 +25,7 @@ class CategoryMealsActivity : AppCompatActivity() {
 
         prepareRecyclerView()
 
-        //  categoryMealsViewModel = ViewModelProviders.of(this)[CategoryMealsViewModel::class.java]
         categoryMealsViewModel = ViewModelProvider(this)[CategoryMealsViewModel::class.java]
-
         categoryMealsViewModel.getMealsByCategory(intent.getStringExtra(HomeFragment.CATEGORY_NAME)!!)
 
         categoryMealsViewModel.observeMealsLiveData().observe(this,Observer{
@@ -38,10 +36,12 @@ class CategoryMealsActivity : AppCompatActivity() {
 
     }
 
+    // ana sayfadaki kategorilerimden bir yemeğe tıklandıgında açılacak
+    // sayfadaki grid
     private fun prepareRecyclerView() {
         categoryMealsAdapter = CategoryMealsAdapter()
         binding.rvMeals.apply {
-            layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
+            layoutManager = GridLayoutManager(context,3,GridLayoutManager.VERTICAL,false)
             adapter = categoryMealsAdapter
         }
     }

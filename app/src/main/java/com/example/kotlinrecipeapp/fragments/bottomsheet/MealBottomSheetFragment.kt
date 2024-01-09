@@ -2,19 +2,16 @@ package com.example.kotlinrecipeapp.fragments.bottomsheet
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.example.kotlinrecipeapp.R
 import com.example.kotlinrecipeapp.activites.MainActivity
 import com.example.kotlinrecipeapp.activites.MealActivity
-import com.example.kotlinrecipeapp.databinding.FragmentCategoriesBinding
 import com.example.kotlinrecipeapp.databinding.FragmentMealBottomSheetBinding
 import com.example.kotlinrecipeapp.fragments.HomeFragment
-import com.example.kotlinrecipeapp.videoModel.HomeViewModel
+import com.example.kotlinrecipeapp.viewModel.HomeViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 private const val MEAL_ID = "param1"

@@ -1,6 +1,5 @@
-package com.example.kotlinrecipeapp.videoModel
+package com.example.kotlinrecipeapp.viewModel
 
-import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.kotlinrecipeapp.db.MealDatabase

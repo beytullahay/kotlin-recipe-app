@@ -7,8 +7,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.example.kotlinrecipeapp.R
 import com.example.kotlinrecipeapp.db.MealDatabase
-import com.example.kotlinrecipeapp.videoModel.HomeViewModel
-import com.example.kotlinrecipeapp.videoModel.HomeViewModelFactory
+import com.example.kotlinrecipeapp.viewModel.HomeViewModel
+import com.example.kotlinrecipeapp.viewModel.HomeViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

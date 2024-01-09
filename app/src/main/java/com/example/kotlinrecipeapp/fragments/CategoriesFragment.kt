@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.kotlinrecipeapp.R
 import com.example.kotlinrecipeapp.activites.MainActivity
 import com.example.kotlinrecipeapp.adapter.CategoriesAdapter
 import com.example.kotlinrecipeapp.databinding.FragmentCategoriesBinding
-import com.example.kotlinrecipeapp.videoModel.HomeViewModel
+import com.example.kotlinrecipeapp.viewModel.HomeViewModel
 
 
 class CategoriesFragment : Fragment() {

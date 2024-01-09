@@ -1,4 +1,4 @@
-package com.example.kotlinrecipeapp.videoModel
+package com.example.kotlinrecipeapp.viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

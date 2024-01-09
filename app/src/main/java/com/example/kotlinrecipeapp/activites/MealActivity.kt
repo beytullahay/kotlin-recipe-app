@@ -4,22 +4,18 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.kotlinrecipeapp.R
-import com.example.kotlinrecipeapp.databinding.ActivityMainBinding
 import com.example.kotlinrecipeapp.databinding.ActivityMealBinding
-import com.example.kotlinrecipeapp.databinding.FragmentHomeBinding
 import com.example.kotlinrecipeapp.db.MealDatabase
 import com.example.kotlinrecipeapp.fragments.HomeFragment
 import com.example.kotlinrecipeapp.pojo.Meal
-import com.example.kotlinrecipeapp.videoModel.HomeViewModel
-import com.example.kotlinrecipeapp.videoModel.MealViewModel
-import com.example.kotlinrecipeapp.videoModel.MealViewModelFactory
+import com.example.kotlinrecipeapp.viewModel.MealViewModel
+import com.example.kotlinrecipeapp.viewModel.MealViewModelFactory
 
 class MealActivity : AppCompatActivity() {
 
@@ -37,6 +33,8 @@ class MealActivity : AppCompatActivity() {
 
         val mealDatabase = MealDatabase.getInstance(this)
         val viewModelFactory = MealViewModelFactory(mealDatabase)
+
+        // viewmodel bağlanıyor.
         mealMvvm = ViewModelProvider(this,viewModelFactory)[MealViewModel::class.java]
 
         getMealInformationFromIntent()
@@ -44,7 +42,7 @@ class MealActivity : AppCompatActivity() {
         setInformationInViews()
 
         loadingCase()
-        mealMvvm.getMealDetail(mealId)
+        mealMvvm.getMealDetail(mealId) // viewmodel'deki api çağrısı
         observerMealDetailsLiveData()
 
         onYoutubeImageClick()
@@ -52,15 +50,18 @@ class MealActivity : AppCompatActivity() {
 
     }
 
+    // yemeği favorilere ekleme. Local db'ye ekliyoruz burada.
     private fun onFavoriteClick() {
         binding.btnAddToFav.setOnClickListener(){
+            // null değil ise içindekini yap
             mealToSave?.let {
-                mealMvvm.insertMeal(it)
+                mealMvvm.insertMeal(it) // db'ye ekle
                 Toast.makeText(this,"Meal save", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
+    // youtube iconuna tıklanılınca intent ile youtube linkiyle appi açıyor.
     private fun onYoutubeImageClick() {
         binding.imgYoutube.setOnClickListener{
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(youtubeLink))
@@ -68,7 +69,7 @@ class MealActivity : AppCompatActivity() {
         }
     }
 
-    private var mealToSave: Meal?=null
+    private var mealToSave: Meal?=null // null olabilen Meal modelinde
     private fun observerMealDetailsLiveData() {
         mealMvvm.observerMealDetailsLiveData().observe(this, object : Observer<Meal>{
 
@@ -88,19 +89,7 @@ class MealActivity : AppCompatActivity() {
         })
     }
 
-
-
-    private fun setInformationInViews() {
-        Glide.with(applicationContext)
-            .load(mealThumb)
-            .into(binding.imgMealDetail)
-
-        binding.collapsingToolbar.title = mealName
-        binding.collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.white)) // yukarı kaydırınca yazı beyaz olacak
-        binding.collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.white))
-    }
-
-
+    // Yemek bilgilerinin alınması, daha sonra buradan alınan veriler ekrana yansıtılacak.
     private fun getMealInformationFromIntent(){
         val intent = intent
         mealId = intent.getStringExtra(HomeFragment.MEAL_ID)!!
@@ -110,7 +99,23 @@ class MealActivity : AppCompatActivity() {
 
     }
 
+    // Yemek görseli ve isminin ekranda gösterilemesi
+    private fun setInformationInViews() {
+        Glide.with(applicationContext)
+            .load(mealThumb)
+            .into(binding.imgMealDetail)
 
+        // başlık yazısını beyaza settik ve ismini yazdırdık
+        binding.collapsingToolbar.title = mealName
+        binding.collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.white)) // yukarı kaydırınca yazı beyaz olacak
+
+    }
+
+
+
+
+
+    // verilere gelene kadar araçların görünürlüğünün ayarlanması.
     private fun loadingCase(){
         binding.progressBar.visibility = View.VISIBLE
         binding.btnAddToFav.visibility = View.INVISIBLE

@@ -1,4 +1,4 @@
-package com.example.kotlinrecipeapp.videoModel
+package com.example.kotlinrecipeapp.viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -13,6 +13,7 @@ import retrofit2.Response
 
 class CategoryMealsViewModel : ViewModel() {
 
+    // veri değiştikce mutablelivedata ile gözlemlenecek
     val mealsLiveData = MutableLiveData<List<MealsByCategory>>()
 
     fun getMealsByCategory(categoryName:String){

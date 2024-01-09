@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlinrecipeapp.activites.MainActivity
 import com.example.kotlinrecipeapp.adapter.MealsAdapter
 import com.example.kotlinrecipeapp.databinding.FragmentFavoritesBinding
-import com.example.kotlinrecipeapp.videoModel.HomeViewModel
+import com.example.kotlinrecipeapp.viewModel.HomeViewModel
 import com.google.android.material.snackbar.Snackbar
 
 

@@ -1,4 +1,4 @@
-package com.example.kotlinrecipeapp.videoModel
+package com.example.kotlinrecipeapp.viewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -17,7 +17,6 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Query
 
 class HomeViewModel(
     private val mealDatabase: MealDatabase
@@ -84,7 +83,7 @@ class HomeViewModel(
     }
 
     fun insertMeal(meal: Meal){
-        viewModelScope.launch {
+        viewModelScope.launch { // aynı anda işlem yaparken ui tarafında sıkıntı yaratmasın diye
             mealDatabase.mealDao().upsert(meal)
         }
     }

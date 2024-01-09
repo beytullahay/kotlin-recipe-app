@@ -1,5 +1,6 @@
 package com.example.kotlinrecipeapp.fragments
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -21,7 +22,7 @@ import com.example.kotlinrecipeapp.databinding.FragmentHomeBinding
 import com.example.kotlinrecipeapp.fragments.bottomsheet.MealBottomSheetFragment
 import com.example.kotlinrecipeapp.pojo.MealsByCategory
 import com.example.kotlinrecipeapp.pojo.Meal
-import com.example.kotlinrecipeapp.videoModel.HomeViewModel
+import com.example.kotlinrecipeapp.viewModel.HomeViewModel
 
 
 class HomeFragment : Fragment() {
@@ -88,6 +89,7 @@ class HomeFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun onPopularItemLongClick() {
          popularItemsAdapter.onLongItemClick = { meal ->
           val mealBottomSheetFragment = MealBottomSheetFragment.newInstance(meal.idMeal)
